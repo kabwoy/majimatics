@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShoppingController;
 use Illuminate\Support\Facades\Route;
@@ -36,14 +37,24 @@ Route::controller(ShoppingController::class)->group(function(){
     Route::prefix('shop')->group(function(){
         Route::get("products", 'index');
         Route::post("products/addcart", 'addToCart');
+        Route::get("products/getcart", 'getCart')->middleware(['auth' => 'auth']);
+        Route::get("products/{id}", 'show');
+
     });
 });
 
 Route::controller(AuthController::class)->group(function(){
     Route::prefix('auth')->group(function(){
-        Route::get("login", 'login');
-        Route::get("signup", 'signup');
+        Route::get("login", 'login')->name('login');
+        Route::get("signup", 'signup')->name('signup');
         Route::post("register", 'register');
         Route::post("login", 'signin');
+        Route::get("logout", 'logout');
     });
 });
+
+// Route::controller(CartItemController::class)->group(function(){
+//     Route::prefix('cart_items')->group(function(){
+//         Route::patch("{id}", 'updateQuantity');   
+//     });
+// });

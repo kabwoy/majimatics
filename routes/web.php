@@ -38,6 +38,7 @@ Route::controller(ShoppingController::class)->group(function(){
         Route::get("products", 'index');
         Route::post("products/addcart", 'addToCart');
         Route::get("products/getcart", 'getCart')->middleware(['auth' => 'auth']);
+        Route::get("products/{id}/checkout", 'checkOutPage')->middleware(['auth' => 'auth']);
         Route::get("products/{id}", 'show');
 
     });

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Cart;
 use App\Models\CartItem;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades;
 use Illuminate\Support\Facades\Facade;
@@ -55,5 +56,6 @@ class AppServiceProvider extends ServiceProvider
         
 
        });
+
     }
 }

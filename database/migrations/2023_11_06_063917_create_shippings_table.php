@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cart_items', function (Blueprint $table) {
+        Schema::create('shippings', function (Blueprint $table) {
             $table->id();
-            $table->integer('quantity')->unsigned();
-            $table->foreignId('cartId')->references('id')->on('carts');
-            $table->foreignId('productId')->references('id')->on('products');
-            $table->softDeletes();
+            $table->string('county');
+            $table->string('sub_county');
+            $table->string('ward');
+            $table->string('phone_number');
+            $table->enum('shipping_method' , ['HIRE_PICKUP' , 'COURIER_DELIVERY']);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cart_items');
+        Schema::dropIfExists('shippings');
     }
 };

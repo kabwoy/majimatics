@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const withMT = require("@material-tailwind/html/utils/withMT");
-module.exports = withMT({
+export default {
   content: [
     "./resources/**/*.blade.php",
       "./resources/**/*.js",
@@ -18,5 +17,5 @@ module.exports = withMT({
     require("daisyui"),
   ],
   
-})
+}
 

@@ -76,4 +76,10 @@ class ShoppingController extends Controller
 
     }
 
+    public function checkOutPage(Request $request , $id){
+        $cartItems = CartItem::where('cartId' , $id)->with('product')->get();
+        return view('shop.checkout' , ['products' => $cartItems]);
+
+    }
+
 }

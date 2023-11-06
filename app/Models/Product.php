@@ -18,7 +18,8 @@ class Product extends Model
         'size',
         'categoryId',
         'quantity',
-       'image'
+       'image',
+       'description'
     ];
 
     public function category():BelongsTo{

@@ -44,8 +44,10 @@ $(function () {
 
     [...decButtons].forEach(function (btn, index) {
         btn.onclick = function (e) {
+            if(+qtyInputs[index].value <= 1){
+                return
+            }
             qtyInputs[index].value = +qtyInputs[index].value - 1;
-
             const id = btn.dataset.id;
             overlay.show();
             $.ajax({

@@ -117,7 +117,11 @@
             
         </tbody>
     </table>
+    
 </div>
+<ul class="flex items-center -space-x-px h-8 text-sm">
+    {{ $products->links() }}
+</ul>
 
 @endsection
 

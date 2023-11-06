@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index(){
-        $products = Product::all();
+        $products = Product::paginate(3);
         return view('admin.products.index' , ['products' => $products]);
     }
 
@@ -25,7 +25,8 @@ class ProductController extends Controller
             'quantity' => 'required|integer',
             'size' =>'required|string',
             'categoryId' =>'required|integer',
-            'image' => 'required|string'
+            'image' => 'required|string',
+            'description' => 'string|nullable'
         ]);
         Product::create($productValidator);
         return redirect('admin/products');

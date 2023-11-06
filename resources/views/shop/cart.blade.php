@@ -53,7 +53,8 @@
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
                 <h2 class="text-lg font-bold text-gray-900">{{ $product->product->product_name }}</h2>
-                <p class="mt-1 text-xs text-gray-700">36EU - 4US</p>
+               
+                {{-- <p class="mt-1 text-xs text-gray-700">36EU - 4US</p> --}}
               </div>
               <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <div class="flex items-center border-gray-100">
@@ -120,7 +121,11 @@
               <p class="text-sm text-gray-700">including VAT</p>
             </div>
           </div>
-          <button class="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Check out</button>
+          <a href="/shop/products/{{ $product->cartId }}/checkout" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                Checkout
+            </span>
+          </a>
         </div>
       </div>
     </div>

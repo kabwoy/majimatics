@@ -9,7 +9,7 @@ $(function () {
     });
 
     subTotal.text(`Ksh ${sum}`);
-    $("#total").text(`Ksh ${sum + 3000}`);
+    $("#total").text(`Ksh ${sum}`);
     const isLoading = false;
     const incButtons = $(".increment");
     const decButtons = $(".decrement");

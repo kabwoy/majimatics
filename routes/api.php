@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartItemController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +25,13 @@ Route::controller(CartItemController::class)->group(function(){
         Route::patch("{id}", 'updateQuantity');    
         Route::patch("{id}/decrement", 'decrementQuantity');  
     });
+});
+Route::post("/callback" , function(Request $request){
+    Log::info($request->all('data'));
+    //Log::info("hello");
+});
+
+Route::get("/callback" , function(Request $request){
+    Log::info('Log message', array('context' => 'Other helpful information'));
+    //Log::info("hello");
 });

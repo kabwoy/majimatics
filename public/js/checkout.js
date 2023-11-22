@@ -1,7 +1,7 @@
 $(function(){
-
-    $("#pickup").on('click' , function(e){
-        $('#shipFee').text('Ksh 3000')
-        console.log(e);
+    const subtotal = $(".sub-total")
+    const price = $(".price")
+    $('.quantity').map((index , el)=>{
+        subtotal[index].innerText = `Ksh ${+el.innerText * +price[index].innerText}`
     })
 })

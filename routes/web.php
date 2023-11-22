@@ -3,7 +3,10 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\ShoppingController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
+    Log::info($request->all());
     return view('home');
 });
 
@@ -53,6 +57,13 @@ Route::controller(AuthController::class)->group(function(){
         Route::get("logout", 'logout');
     });
 });
+
+Route::controller(ShippingController::class)->group(function(){
+    Route::prefix('shipping')->group(function(){
+        Route::post("", 'createShipping')->middleware(['auth' => 'auth']);
+    });
+});
+
 
 // Route::controller(CartItemController::class)->group(function(){
 //     Route::prefix('cart_items')->group(function(){
